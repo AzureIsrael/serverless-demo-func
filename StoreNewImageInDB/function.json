@@ -1,0 +1,21 @@
+{
+  "bindings": [
+    {
+      "name": "imageBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "images/{name}",
+      "connection": "serverlessdemosa_STORAGE"
+    },
+    {
+      "type": "documentDB",
+      "name": "imageDocument",
+      "databaseName": "serverless-demo-db",
+      "collectionName": "Images",
+      "createIfNotExists": false,
+      "connection": "serverless-demo-cosmosdb_DOCUMENTDB",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

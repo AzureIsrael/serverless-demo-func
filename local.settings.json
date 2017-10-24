@@ -1,0 +1,26 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "None",
+    "AzureWebJobsSecretStorageType": "disabled",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "COMPUTER_VISION_KEY": "4970ebf094d24861b73e1679e16b3ce4",
+    "REMOTEDEBUGGINGVERSION": "11.0.611103.400",
+    "serverlessdemosa_STORAGE": "DefaultEndpointsProtocol=https;AccountName=serverlessdemosa;AccountKey=KbkhLE+OFsJV8YmefYTvc6uRGuN4PM1K9mLs1BWb42oDvkxXGQwfRegj04h2g0CJT8bI59+k2jBrZHYS8qua5A==",
+    "cosmosDbCollection": "Images",
+    "cosmosDbEndpoint": "serverless-demo-cosmosdb.graphs.azure.com",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "9ee0b12e-54da-4243-9713-ec49c31b92db",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=serverlessdemofa0c4;AccountKey=S9ks37BYwsYxBc0N7+dnOvJ8C8w3EDSEem5OA8vFHeV0keROU6hJyx7QNiqXidw76SiD3V3w24Jm5QYlHUsNRQ==",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "cosmosDbPrimaryKey": "1XLmHMqjZx6yVh1FNG9DvcxYWcMRfGkbxnY8GC7KMEVsCp9GnkJ5rz0lexozd8dZqjjAkSqaVSSqlOEXtU6eMQ==",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=serverlessdemofa0c4;AccountKey=S9ks37BYwsYxBc0N7+dnOvJ8C8w3EDSEem5OA8vFHeV0keROU6hJyx7QNiqXidw76SiD3V3w24Jm5QYlHUsNRQ==",
+    "WEBSITE_CONTENTSHARE": "serverless-demo-functiona0c4",
+    "serverless-demo-cosmosdb_DOCUMENTDB": "AccountEndpoint=https://serverless-demo-cosmosdb.documents.azure.com:443/;AccountKey=1XLmHMqjZx6yVh1FNG9DvcxYWcMRfGkbxnY8GC7KMEVsCp9GnkJ5rz0lexozd8dZqjjAkSqaVSSqlOEXtU6eMQ==;",
+    "COMPUTER_VISION_API_ENDPOINT": "https://westeurope.api.cognitive.microsoft.com/vision/v1.0",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=serverlessdemofa0c4;AccountKey=S9ks37BYwsYxBc0N7+dnOvJ8C8w3EDSEem5OA8vFHeV0keROU6hJyx7QNiqXidw76SiD3V3w24Jm5QYlHUsNRQ==",
+    "cosmosDbDatabase": "serverless-demo-db",
+    "WEBSITE_SITE_NAME": "serverless-demo-function"
+  }
+}

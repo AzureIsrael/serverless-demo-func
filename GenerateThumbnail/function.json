@@ -1,0 +1,15 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "input",
+      "connectionStringSetting": "serverless-demo-cosmosdb_DOCUMENTDB",
+      "databaseName": "serverless-demo-db",
+      "collectionName": "Images",
+      "leaseCollectionName": "ImagesLeases",
+      "createLeaseCollectionIfNotExists": true,
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
