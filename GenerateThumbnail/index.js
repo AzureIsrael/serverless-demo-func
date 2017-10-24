@@ -1,18 +1,13 @@
 var cognitive = require("./cognitive");
+var azureStorage = require("azure-storage");
+var streamifier = require('streamifier');
 
 module.exports = function (context, input) {
-        context.log(input[0].id);
-        context.log(input[0].fileName);
-        context.log(input[0].fileSize);
+    input.forEach(function(element) {
+        var id = element.id;
+        var fileName = element.fileName[0]._value;
+        cognitive.generateThumbnail(fileName,100,100,context);
+    }, this);
 
-        cognitive.describeImage('https://serverlessdemosa.blob.core.windows.net/images/' + input[0].fileName, (context, data) => {
-                                    context.log(data);                                    
-                                });
-
-        /*
-        context.bindings.document = {
-            text : "I'm running in a JavaScript function! Data: '" + input + "'"
-        }   
-        */
-        context.done();
-    };
+    context.done();
+};

@@ -21,6 +21,8 @@
     "COMPUTER_VISION_API_ENDPOINT": "https://westeurope.api.cognitive.microsoft.com/vision/v1.0",
     "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=serverlessdemofa0c4;AccountKey=S9ks37BYwsYxBc0N7+dnOvJ8C8w3EDSEem5OA8vFHeV0keROU6hJyx7QNiqXidw76SiD3V3w24Jm5QYlHUsNRQ==",
     "cosmosDbDatabase": "serverless-demo-db",
-    "WEBSITE_SITE_NAME": "serverless-demo-function"
+    "WEBSITE_SITE_NAME": "serverless-demo-function",
+    "AZURE_STORAGE_ACCOUNT": "serverlessdemosa",
+    "AZURE_STORAGE_ACCESS_KEY": "KbkhLE+OFsJV8YmefYTvc6uRGuN4PM1K9mLs1BWb42oDvkxXGQwfRegj04h2g0CJT8bI59+k2jBrZHYS8qua5A=="
   }
 }
