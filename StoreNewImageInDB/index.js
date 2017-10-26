@@ -1,5 +1,5 @@
 
-var Gremlin = require('gremlin');
+var gremlin = require('gremlin');
 
 module.exports = function (context, imageBlob) {
     try {
@@ -10,7 +10,7 @@ module.exports = function (context, imageBlob) {
 
         context.log(JSON.stringify(imageDocument));
 
-        const client = Gremlin.createClient(
+        const client = gremlin.createClient(
             443, 
             process.env["cosmosDbEndpoint"], 
             { 
