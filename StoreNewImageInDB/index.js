@@ -20,10 +20,23 @@ module.exports = function (context, imageBlob) {
                 "password": process.env["cosmosDbPrimaryKey"]
             });
             
-            client.execute("g.addV('image').property('fileName', fileName).property('fileSize', fileSize)", 
-               imageDocument, (err, results) => {
-                if (err) return console.error(err);
-                console.log(JSON.stringify(results));
+
+            // check to see if image aleardy exists
+            client.execute(`g.V().has('fileName','${imageDocument.fileName}')`,
+            {}, (err, results) => {
+                if (err) throw `failed to search image by file name [${imageDocument.fileName}] returned with error ${err}`;
+                if (reults && results.length > 0) {
+                    context.log(`image [${imageDocument.fileName}] already exists in db`);
+                    return;
+                }
+
+                // insert new vertext
+                client.execute("g.addV('image').property('fileName', fileName).property('fileSize', fileSize)", 
+                imageDocument, (err, results) => {
+                 if (err) throw `failed to create vertex for image[${imageDocument.fileName}] returned with error ${err}`;
+                 context.log(context.stringify(results));
+             });
+
             });
 
         /* bug in sdk

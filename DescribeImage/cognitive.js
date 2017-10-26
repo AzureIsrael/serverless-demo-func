@@ -24,7 +24,7 @@ function describeImage(fileName, context, callback) {
                 throw `failed describing image [${fileName}] returned with code ${body.code}`;
             }
             var caption = body.description.captions[0].text;
-            callback(caption);
+            callback({description:caption, tags: body.description.tags, metadata:body.metadata});
         });
 }
 
