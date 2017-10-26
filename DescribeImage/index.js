@@ -19,11 +19,13 @@ module.exports = function (context, input) {
                         "password": process.env["cosmosDbPrimaryKey"]
                     });
 
-                client.execute(`g.V().has('id','${id}').property('description', '${result.description}').property('tags',${result.tags}).property('metadata',${result.metadata})`,
+                client.execute(`g.V().has('id','${id}').property('description', '${result.description}').property('metadata',${result.metadata})`,
                     {}, (err, results) => {
                         if (err) throw `failed to update image description for vertex [${id}] returned with error ${err}`;
                         context.log(JSON.stringify(results));
                     });
+
+                //todo create vertext for tags and edges
             }
         );
 
