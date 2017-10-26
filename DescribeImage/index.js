@@ -5,6 +5,7 @@ module.exports = function (context, input) {
     input.forEach(function (element) {
         var id = element.id;
         var fileName = element.fileName[0]._value;
+        context.log(`describing image [${fileName}] which connected to vertex [${id}]`);
         cognitive.describeImage(fileName, context,
             (result) => {
                 context.log(`vertex [${id}] connected to image [${fileName}] described as [${result}], updating vertex...`);
