@@ -12,6 +12,9 @@ module.exports = function (context, input) {
                 if (error) {
                   return context.log(error);
                 }
+                if (body.code) {
+                    return context.log(body);
+                }
                 var caption = body.description.captions[0].text;
                 context.log(caption);
               }

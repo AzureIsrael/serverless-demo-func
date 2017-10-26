@@ -19,10 +19,13 @@ function generateThumbnail(fileName, width, height, context) {
     };
     request(options)
         .on('error', function (err) {
-            throw err;
+            throw `failed generate thumbnail for ${fileName} return with err ${err}`;
         })
-        .on('end', function () {
-            console.log(["Created ", fileName, " thumbnail."].join(''));
+        .on('response', function (response) {
+            if (response.statusCode != "200") {
+                throw `failed generate thumbnail for ${fileName} returned with code ${response.statusCode} (${response.statusMessage})`;
+            }
+            context.log(`Created thumbnail for ${fileName}`);
         }).pipe(saveThumbnailToAzure(context, fileName));
 
 }
@@ -34,28 +37,16 @@ function saveThumbnailToAzure(context, fileName) {
     return blobService
         .createWriteStreamToBlockBlob('thumbnails', fileName)
         .on('error', function (err) {
-            throw err;
+            throw `failed storing thumbnail for ${fileName} return with err ${err}`;
         })
-        .on('end', function () {
-            context.log(["Uploaded ", fileName, " image to 'thumbnails' container on Azure."].join(''));
+        .on('response', function () {
+            if (response.statusCode != "200") {
+                throw `failed generate thumbnail for ${fileName} returned with code ${response.statusCode} (${response.statusMessage})`;
+            }
+            context.log(`Uploaded thumbnail for ${fileName}`);
         });
 }
 
-function describeImage(fileName, context, callback) {
-    const options = {
-        uri: process.env.COMPUTER_VISION_API_ENDPOINT + "/describe", //'https://requestb.in/1izuyvd1'
-        method: "POST",
-        headers: {
-            'Content-Type': "application/json",
-            'Ocp-Apim-Subscription-Key': process.env.COMPUTER_VISION_KEY
-        },
-        json: true,
-        body: { url: `https://${process.env.AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/images/${fileName}` }
-    };
-    request(options,callback);
-}
-
 module.exports = {
-    describeImage,
     generateThumbnail
 }
