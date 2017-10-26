@@ -12,7 +12,20 @@ function describeImage(fileName, context, callback) {
         json: true,
         body: { url: `https://${process.env.AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/images/${fileName}` }
     };
-    request(options,callback);
+    request(options,
+        function (error, response, body) {
+            if (error) {
+                throw `failed describing image [${fileName}] returned with error [${error}]`;
+            }
+            if (response.statusCode != "200") {
+                throw `failed describing image [${fileName}] returned with code ${response.statusCode} (${response.statusMessage})`;
+            }
+            if (body.code) {
+                throw `failed describing image [${fileName}] returned with code ${body.code}`;
+            }
+            var caption = body.description.captions[0].text;
+            callback(caption);
+        });
 }
 
 module.exports = {
