@@ -34,7 +34,7 @@ module.exports = function (context, imageBlob) {
                 client.execute("g.addV('image').property('fileName', fileName).property('fileSize', fileSize)", 
                 imageDocument, (err, results) => {
                  if (err) throw `failed to create vertex for image[${imageDocument.fileName}] returned with error ${err}`;
-                 context.log(context.stringify(results));
+                 context.log(JSON.stringify(results));
              });
 
             });
