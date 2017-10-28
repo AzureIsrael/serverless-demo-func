@@ -25,7 +25,7 @@ module.exports = function (context, imageBlob) {
             client.execute(`g.V().has('fileName','${imageDocument.fileName}')`,
             {}, (err, results) => {
                 if (err) throw `failed to search image by file name [${imageDocument.fileName}] returned with error ${err}`;
-                if (reults && results.length > 0) {
+                if (results && results.length > 0) {
                     context.log(`image [${imageDocument.fileName}] already exists in db`);
                     return;
                 }
